@@ -1,7 +1,5 @@
 package in.prec.basicprograms.operators.main;
 
-import in.prec.basicprograms.operators.Operators;
-
 public class MainOperators {
 
 	public static void main(String[] args) {

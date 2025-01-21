@@ -1,4 +1,4 @@
-package in.prec.basicprograms.operators;
+package in.prec.basicprograms.operators.main;
 
 public class Operators {
 
