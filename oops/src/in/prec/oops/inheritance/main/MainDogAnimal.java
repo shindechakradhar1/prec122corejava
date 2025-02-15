@@ -1,7 +1,7 @@
 package in.prec.oops.inheritance.main;
 
 import in.prec.oops.inheritance.subclasses.Cat;
-import in.prec.oops.inheritance.subclasses.GermanShephard;
+import in.prec.oops.inheritance.superclasses.Animal;
 
 public class MainDogAnimal {
 	public static void main(String[] args) {
