@@ -7,6 +7,7 @@ import in.prec.exception.customexceptions.InvalidNameException;
 import in.prec.exception.entities.Student;
 import in.prec.exception.service.StudentService;
 
+
 public class StudentUitility {
 
 	public void intsert(Scanner scanner) {
