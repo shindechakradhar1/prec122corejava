@@ -1,4 +1,4 @@
-package in.prec.collection.list.stack.main;
+package in.prec.collection.list.stack.utility;
 
 import java.util.Enumeration;
 import java.util.Stack;
@@ -14,7 +14,7 @@ public class UtilityOperation {
 	}
 	
 	public void redo() {
-		if(index<=size) {
+		if(index<size) {
 		intStack.push((int)(Math.random()*100));
 		index++;
 		}else
@@ -25,6 +25,8 @@ public class UtilityOperation {
 		if(index>0) {
 			System.out.println(intStack.pop());
 			index--;
+		}else {
+			System.out.println("Stack is Empty");
 		}
 	}
 	
