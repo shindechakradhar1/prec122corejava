@@ -3,19 +3,19 @@ package in.prec.cartservicesminiproject.entitities;
 import java.util.LinkedList;
 
 public class Cart {
-	private LinkedList<Product> cartProduct;
+	private LinkedList<ElectronicProduct> cartProduct;
 
 	public Cart() {}
 
-	public Cart(LinkedList<Product> cartProduct) {
+	public Cart(LinkedList<ElectronicProduct> cartProduct) {
 		this.cartProduct = cartProduct;
 	}
 
-	public LinkedList<Product> getCartProduct() {
+	public LinkedList<ElectronicProduct> getCartProduct() {
 		return cartProduct;
 	}
 
-	public void setCartProduct(LinkedList<Product> cartProduct) {
+	public void setCartProduct(LinkedList<ElectronicProduct> cartProduct) {
 		this.cartProduct = cartProduct;
 	}
 

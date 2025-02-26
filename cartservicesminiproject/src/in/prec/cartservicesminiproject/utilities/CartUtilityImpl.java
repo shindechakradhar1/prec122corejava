@@ -3,12 +3,17 @@ package in.prec.cartservicesminiproject.utilities;
 import java.util.Scanner;
 
 import in.prec.cartservicesminiproject.entitities.Cart;
+import in.prec.cartservicesminiproject.entitities.ElectronicProduct;
 import in.prec.cartservicesminiproject.entitities.Product;
+import in.prec.cartservicesminiproject.exceptions.InvalidIndexException;
+import in.prec.cartservicesminiproject.services.CartService;
+import in.prec.cartservicesminiproject.services.CartServiceImpl;
 
 public class CartUtilityImpl implements CartUtility{
 	
 	private Cart cart;
 	private Product product;
+	private CartService service = new CartServiceImpl();
 	
 	public CartUtilityImpl(Cart cart, Product product) {
 		this.cart=cart;
@@ -20,24 +25,46 @@ public class CartUtilityImpl implements CartUtility{
 		if(product.getProductList().isEmpty())
 			System.out.println("Products are out of Stock..");
 		else {
-			System.out.println(product.getProductList());
-			System.out.println("Add product to Cart");
+			printProductList(product);
+			System.out.println("Enter a Sr.No to Add a product to Cart");
+			int index = scanner.nextInt();
+//			cart.getCartProduct().add();
+			try
+			{
+					service.add(cart, product, index);
+			}catch(InvalidIndexException e) {
+				System.out.println(e.getMessage());
+			}
 		}
+	}
+	
+	private void printProductList(Product product) {
+		int i=0;
+		for(ElectronicProduct eProduct: product.getProductList())
+			System.out.println((++i) +") " + eProduct);
 	}
 
 	@Override
 	public void delete(Scanner scanner) {
-		System.out.println("Delete Cart");
+		print();
+		System.out.println("Enter Sr.no to delete a product from cart");
+		int index=scanner.nextInt();
+//		cart.getCartProduct().remove(index-1);
+//		System.out.println("Product deleted from cart successfully...");
+		System.out.println(service.delete(cart, index));
 	}
 
 	@Override
 	public void update(Scanner scanner) {
-		System.out.println("Update Cart");
+		delete(scanner);
 	}
 
 	@Override
 	public void print() {
-		System.out.println("print Cart");
+		int i=0;
+		System.out.println("Cart List");
+		for(ElectronicProduct eProduct:cart.getCartProduct())
+			System.out.println((++i) + ") " +eProduct);
 	}
 
 	@Override

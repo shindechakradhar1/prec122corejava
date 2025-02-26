@@ -4,9 +4,12 @@ import java.util.Scanner;
 
 import in.prec.cartservicesminiproject.entitities.ElectronicProduct;
 import in.prec.cartservicesminiproject.entitities.Product;
+import in.prec.cartservicesminiproject.services.ProductService;
+import in.prec.cartservicesminiproject.services.ProductServiceImpl;
 
 public class ProductUtilityImpl implements ProductUtility{
 	private Product product;
+	private ProductService service = new ProductServiceImpl();
 	
 	public ProductUtilityImpl(Product product) {
 		this.product = product;
@@ -27,9 +30,10 @@ public class ProductUtilityImpl implements ProductUtility{
 		brand = scanner.nextLine();
 		System.out.println("Enter Product Price: ");
 		price=scanner.nextFloat();
-		ElectronicProduct eProduct=new ElectronicProduct(id, name, brand, price); 
-		product.getProductList().add(eProduct);
-		System.out.println("Product Added Successfully..");
+		ElectronicProduct eProduct=new ElectronicProduct(id, name, brand, price);
+		System.out.println(service.add(product, eProduct));
+//		product.getProductList().add(eProduct);
+//		System.out.println("Product Added Successfully..");
 	}
 
 	@Override
@@ -37,8 +41,9 @@ public class ProductUtilityImpl implements ProductUtility{
 		print();
 		System.out.println("Enter a sr.No of Product to delete");
 		int index=scanner.nextInt();
-		product.getProductList().remove(index-1);
-		System.out.println("Product Deleted Successfully..");
+		System.out.println(service.delete(product, index));
+//		product.getProductList().remove(index-1);
+//		System.out.println("Product Deleted Successfully..");
 	}
 
 	@Override
@@ -59,8 +64,9 @@ public class ProductUtilityImpl implements ProductUtility{
 		brand = scanner.nextLine();
 		System.out.println("Enter Product Price: ");
 		price=scanner.nextFloat();
-		ElectronicProduct eProduct=new ElectronicProduct(id, name, brand, price); 
-		product.getProductList().set(index-1, eProduct);
+		ElectronicProduct eProduct=new ElectronicProduct(id, name, brand, price);
+		System.out.println(service.update(product, eProduct, index));
+//		product.getProductList().set(index-1, eProduct);
 	}
 
 	@Override
