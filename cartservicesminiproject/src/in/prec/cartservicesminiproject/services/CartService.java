@@ -7,4 +7,5 @@ import in.prec.cartservicesminiproject.exceptions.InvalidIndexException;
 public interface CartService {
 	String add(Cart cart, Product product, int index) throws InvalidIndexException;
 	String delete(Cart cart, int index);
+	float calculateTotalSum(Cart cart);
 }
